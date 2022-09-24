@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     //PRIMARY COLORS
     --color-primary: 255, 109, 0;       //#ff6d00
     --color-prim-hover: 255, 121, 0;    //#ff7900
+    --color-cards: 255, 158, 0;         //#ff9e00
     //GREY SCALE
     --grey-0 : 248, 249, 250;           //#f8f9fa
     --grey-1 : 222, 226, 230;           //#dee2e6
@@ -31,13 +32,16 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    overflow-y: auto;
+    overflow: hidden;
     background: rgb(var(--grey-0));
 }
 
 #__next {
     width: 100%;
+    max-width: 100%;
     height: 100%;
+    
+
 }
 
 button {
