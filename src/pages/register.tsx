@@ -1,18 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import goToCadastro from "../store/cadastro/actions/cadastro.action";
-import goToDashboard from "../store/cadastro/actions/dashboard.action";
+import { isCadastro, isDashboard } from "../store/cadastro/cadastroSlice";
 import Header from "../components/header";
 
 function Register() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(goToCadastro());
+    dispatch(isCadastro());
     return () => {
-      dispatch(goToDashboard());
+      dispatch(isDashboard());
     };
   }, []);
-  return <Header />;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default Register;

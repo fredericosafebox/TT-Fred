@@ -1,13 +1,19 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-
-import counterReducer from "./counter/counter.reducer";
-import cadastroReducer from "./cadastro/cadastro.reducer";
+import { createWrapper } from "next-redux-wrapper";
+import cadastro from "./cadastro/cadastroSlice";
+import users from "./users/usersSlice";
+import validator from "./validator/validatorSlice";
+import loader from "./loader/loaderSlice";
 
 const reducers = combineReducers({
-  counter: counterReducer,
-  cadastro: cadastroReducer,
+  cadastro,
+  users,
+  validator,
+  loader,
 });
 
-const store = configureStore({ reducer: reducers });
+function makeStore() {
+  return configureStore({ reducer: reducers });
+}
 
-export default store;
+export const wrapper = createWrapper(makeStore);

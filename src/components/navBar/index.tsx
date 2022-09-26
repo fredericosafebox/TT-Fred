@@ -1,20 +1,32 @@
 import Logo from "../logo";
+import Link from "next/link";
 import { StyledNav } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../interfaces/IStates";
-import increment from "../../store/counter/actions/counter.increment.action";
-import decrement from "../../store/counter/actions/counter.decrement.action";
+import { initiate, finish } from "../../store/loader/loaderSlice";
+import Loading from "../loading";
 
 function NavBar() {
   const dispatch = useDispatch();
-  const isDashboard = useSelector((state: RootState) => state.cadastro);
+  const isCadastro = useSelector((state: RootState) => state.cadastro);
+  const isLoading = useSelector((state: RootState) => state.loader);
   return (
     <StyledNav>
       <Logo>
         Mighty
         <span> List</span>
       </Logo>
-      {/* {isDashboard && <h1>RENDERIZAR MENU</h1>} */}
+
+      {isCadastro.cadastro ? (
+        <Link href={"/"}>
+          <button onClick={() => dispatch(initiate())}>Home</button>
+        </Link>
+      ) : (
+        <Link href={"/register"}>
+          <button>Cadastrar</button>
+        </Link>
+      )}
+      {isLoading.isLoading && <Loading />}
     </StyledNav>
   );
 }
