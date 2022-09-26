@@ -47,7 +47,7 @@ body {
 #app__home--wrapper {
     width: 100%;
     display: flex;
-    background: red;
+    background: rgb(var(--grey-5));
     height: 100;
     justify-content: center;
 }

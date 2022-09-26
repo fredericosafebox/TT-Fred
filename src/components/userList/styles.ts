@@ -35,8 +35,8 @@ export const StyledList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     padding: 1rem;
-    top: 10rem;
   }
+
   @media screen AND (min-width: 1024px) {
     padding: 0.5rem;
     padding-left: 1rem;

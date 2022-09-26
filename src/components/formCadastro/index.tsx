@@ -20,7 +20,6 @@ function Form() {
   } = useForm({ resolver: yupResolver(cadastroSchema) });
 
   function submitData(data: FieldValues) {
-    console.log(data);
     const { name, email, status } = data;
     const newUser: IUser[] = [
       {
@@ -34,6 +33,7 @@ function Form() {
 
     dispatch(isAltered());
     dispatch(update(newUser));
+    window.alert("Usuário cadastrado");
   }
   return (
     <StyledFormWrapper>
@@ -52,7 +52,9 @@ function Form() {
             />
             {errors?.name && (
               <span className="errorRegister">
-                <FiAlertCircle /> {errors.name.message}
+                <>
+                  <FiAlertCircle /> {errors.name.message}
+                </>
               </span>
             )}
           </div>
@@ -66,7 +68,9 @@ function Form() {
             />
             {errors?.email && (
               <span className="errorRegister">
-                <FiAlertCircle /> {errors.email.message}
+                <>
+                  <FiAlertCircle /> {errors.email.message}
+                </>
               </span>
             )}
           </div>
@@ -78,7 +82,9 @@ function Form() {
             </select>
             {errors?.status && (
               <span className="errorRegister">
-                <FiAlertCircle /> {errors.status.message}
+                <>
+                  <FiAlertCircle /> {errors.status.message}
+                </>
               </span>
             )}
           </div>

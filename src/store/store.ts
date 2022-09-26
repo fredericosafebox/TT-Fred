@@ -16,8 +16,9 @@ const reducers = combineReducers({
   filterValidator,
 });
 
-function makeStore() {
-  return configureStore({ reducer: reducers });
+export function makeStore() {
+  const store = configureStore({ reducer: reducers });
+  return store;
 }
 
 export const wrapper = createWrapper(makeStore);

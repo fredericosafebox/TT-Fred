@@ -3,7 +3,7 @@ import Link from "next/link";
 import { StyledNav } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../interfaces/IStates";
-import { initiate, finish } from "../../store/loader/loaderSlice";
+import { initiate } from "../../store/loader/loaderSlice";
 import Loading from "../loading";
 import { HiHome, HiUserAdd } from "react-icons/hi";
 import SearchBar from "../navSearch";

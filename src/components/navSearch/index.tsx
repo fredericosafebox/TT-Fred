@@ -28,7 +28,7 @@ function SearchBar() {
   return (
     <form onSubmit={handleSubmit(search)} className="app__search--bar">
       <label htmlFor="busca"></label>
-      <input type="text" id="busca" {...register("busca")} />
+      <input type="text" id="busca" {...register("busca")} autoComplete="off" />
       <button>
         <BiSearch size={25} />
       </button>

@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { StyledLoader } from "./styles";
-import React, { useEffect } from "react";
 import { Modal } from "../modal";
 
 const Loading = () => {
