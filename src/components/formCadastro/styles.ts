@@ -9,6 +9,7 @@ export const StyledFormWrapper = styled.div`
   align-items: center;
 
   form {
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     width: 95%;

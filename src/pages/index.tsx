@@ -11,6 +11,8 @@ import { AxiosResponse } from "axios";
 import { useEffect } from "react";
 import { finish } from "../store/loader/loaderSlice";
 import { v4 as uuidv4 } from "uuid";
+import { applyFilter } from "../store/filter/filterSlice";
+import { isFiltered } from "../store/validator/filterValidator";
 
 export async function getStaticProps() {
   const res: AxiosResponse = await api.get("users");
@@ -21,19 +23,25 @@ export async function getStaticProps() {
     },
   };
 }
-
+//
 const Home: NextPage = (props: any) => {
+  const { data } = props;
+
   useEffect(() => {
+    //dispatch(applyFilter(data));
+
     dispatch(finish());
     return () => {
       dispatch(finish());
     };
   }, []);
+
   const dispatch = useDispatch();
   const validator = useSelector((state: RootState) => state.validator);
-  const { data } = props;
+  const isFiltered = useSelector((state: RootState) => state.filterValidator);
+  const filteredArray = useSelector((state: RootState) => state.filteredData);
+
   if (validator.validate === false) {
-    console.log("try");
     dispatch(load(data));
   }
   const users = useSelector((state: RootState) => state.users);
@@ -43,33 +51,49 @@ const Home: NextPage = (props: any) => {
       <Header />
 
       <UserList>
-        {validator.validate
-          ? users.users.map((obj: IUser) => {
-              const { id, name, email, gender, status } = obj;
-              return (
-                <UserCard
-                  key={uuidv4()}
-                  id={id}
-                  email={email}
-                  name={name}
-                  gender={gender}
-                  status={status}
-                />
-              );
-            })
-          : data.map((obj: IUser) => {
-              const { id, name, email, gender, status } = obj;
-              return (
-                <UserCard
-                  key={uuidv4()}
-                  id={id}
-                  email={email}
-                  name={name}
-                  gender={gender}
-                  status={status}
-                />
-              );
-            })}
+        {isFiltered.isFiltered === false &&
+          (validator.validate
+            ? users.users.map((obj: IUser) => {
+                const { id, name, email, gender, status } = obj;
+                return (
+                  <UserCard
+                    key={uuidv4()}
+                    id={id}
+                    email={email}
+                    name={name}
+                    gender={gender}
+                    status={status}
+                  />
+                );
+              })
+            : data.map((obj: IUser) => {
+                const { id, name, email, gender, status } = obj;
+                return (
+                  <UserCard
+                    key={uuidv4()}
+                    id={id}
+                    email={email}
+                    name={name}
+                    gender={gender}
+                    status={status}
+                  />
+                );
+              }))}
+        {isFiltered.isFiltered === true &&
+          filteredArray?.filteredData.map((obj: IUser) => {
+            console.log(obj);
+            const { id, name, email, gender, status } = obj;
+            return (
+              <UserCard
+                key={uuidv4()}
+                id={id}
+                email={email}
+                name={name}
+                gender={gender}
+                status={status}
+              />
+            );
+          })}
       </UserList>
     </div>
   );

@@ -11,4 +11,9 @@ export const StyledHeader = styled.header`
   justify-content: center;
   position: fixed;
   z-index: 1000;
+
+  @media screen AND (max-width: 768px) {
+    min-height: 10rem;
+    max-height: 10rem;
+  }
 `;

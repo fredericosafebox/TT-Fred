@@ -19,21 +19,27 @@ function NavBar() {
         Mighty
         <span> List</span>
       </Logo>
-      <SearchBar />
-      <SearchButtons />
 
       {isCadastro.cadastro ? (
         <Link href={"/"}>
-          <button onClick={() => dispatch(initiate())}>
+          <button
+            className="app__home--btn"
+            onClick={() => dispatch(initiate())}
+          >
             <HiHome size={27} />
           </button>
         </Link>
       ) : (
-        <Link href={"/register"}>
-          <button onClick={() => dispatch(initiate())}>
-            <HiUserAdd size={27} />
-          </button>
-        </Link>
+        <>
+          {" "}
+          <SearchBar />
+          <SearchButtons />
+          <Link href={"/register"}>
+            <button onClick={() => dispatch(initiate())}>
+              <HiUserAdd size={27} />
+            </button>
+          </Link>
+        </>
       )}
       {isLoading.isLoading && <Loading />}
     </StyledNav>

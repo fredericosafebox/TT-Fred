@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const StyledList = styled.ul`
   width: 100%;
+  height: 100%;
   max-width: 1200px;
   position: absolute;
-  top: 5rem;
+  top: 10rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,7 +14,7 @@ export const StyledList = styled.ul`
   overflow-y: auto;
   scrollbar-gutter: stable;
   max-height: calc(100% - 5rem);
-  padding: 1rem 0;
+  padding: 2rem 0 6rem 0;
   transition: 1s;
 
   &::-webkit-scrollbar {
@@ -34,6 +35,7 @@ export const StyledList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     padding: 1rem;
+    top: 10rem;
   }
   @media screen AND (min-width: 1024px) {
     padding: 0.5rem;

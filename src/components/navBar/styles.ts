@@ -9,6 +9,7 @@ export const StyledNav = styled.nav`
   justify-content: space-between;
   padding: 0 1rem;
   transition: 1s;
+  gap: 0.4rem;
 
   .app__search--bar {
     display: flex;
@@ -44,11 +45,21 @@ export const StyledNav = styled.nav`
     }
   }
 
+  .app__home--btn {
+    position: relative;
+    right: 1.5rem;
+    top: 0rem;
+  }
+
   button {
     padding: 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0.3rem;
+  }
+
+  @media screen AND (max-width: 768px) {
+    flex-wrap: wrap;
   }
 `;
