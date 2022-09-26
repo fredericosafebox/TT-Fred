@@ -6,6 +6,8 @@ import { RootState } from "../../interfaces/IStates";
 import { initiate, finish } from "../../store/loader/loaderSlice";
 import Loading from "../loading";
 import { HiHome, HiUserAdd } from "react-icons/hi";
+import SearchBar from "../navSearch";
+import SearchButtons from "../navButtons";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -17,6 +19,8 @@ function NavBar() {
         Mighty
         <span> List</span>
       </Logo>
+      <SearchBar />
+      <SearchButtons />
 
       {isCadastro.cadastro ? (
         <Link href={"/"}>

@@ -10,6 +10,40 @@ export const StyledNav = styled.nav`
   padding: 0 1rem;
   transition: 1s;
 
+  .app__search--bar {
+    display: flex;
+    gap: 0.3rem;
+    input {
+      transition: 0.5s;
+      padding: 0 1rem;
+      outline: none;
+      height: 2.5rem;
+      border-radius: 0.3rem;
+      background: none;
+      border: 2px solid rgb(var(--color-primary));
+      color: rgb(var(--color-primary));
+      font-size: 1rem;
+
+      &:focus {
+        box-shadow: 0 0 8px 0 rgb(var(--color-prim-hover));
+      }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+    }
+  }
+  .app__filter--wrapper {
+    display: flex;
+    gap: 0.4rem;
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
   button {
     padding: 0.3rem;
     display: flex;

@@ -13,6 +13,7 @@ const usersSlice = createSlice({
       state.users = [...state.users, ...action.payload];
     },
     load(state, action: PayloadAction<IUser[]>) {
+      state.users = [];
       state.users = [...state.users, ...action.payload];
     },
   },

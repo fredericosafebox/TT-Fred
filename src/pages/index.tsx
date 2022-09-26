@@ -33,6 +33,7 @@ const Home: NextPage = (props: any) => {
   const validator = useSelector((state: RootState) => state.validator);
   const { data } = props;
   if (validator.validate === false) {
+    console.log("try");
     dispatch(load(data));
   }
   const users = useSelector((state: RootState) => state.users);
