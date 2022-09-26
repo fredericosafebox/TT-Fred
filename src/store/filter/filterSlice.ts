@@ -10,7 +10,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     applyFilter(state, action: PayloadAction<IUser[]>) {
-      state.filteredData = [];
+      //state.filteredData = [];
       state.filteredData = [...action.payload];
     },
     cleanFilter(state) {

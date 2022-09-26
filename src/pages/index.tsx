@@ -24,12 +24,14 @@ export async function getStaticProps() {
   };
 }
 //
-const Home: NextPage = (props: any) => {
+const Home = (props: { data: IUser[] }) => {
   const { data } = props;
 
   useEffect(() => {
     //dispatch(applyFilter(data));
-
+    if (validator.validate === false) {
+      dispatch(load(data));
+    }
     dispatch(finish());
     return () => {
       dispatch(finish());
@@ -41,9 +43,7 @@ const Home: NextPage = (props: any) => {
   const isFiltered = useSelector((state: RootState) => state.filterValidator);
   const filteredArray = useSelector((state: RootState) => state.filteredData);
 
-  if (validator.validate === false) {
-    dispatch(load(data));
-  }
+  /*  */
   const users = useSelector((state: RootState) => state.users);
 
   return (
