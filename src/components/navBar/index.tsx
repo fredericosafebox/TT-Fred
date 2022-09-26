@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../interfaces/IStates";
 import { initiate, finish } from "../../store/loader/loaderSlice";
 import Loading from "../loading";
+import { HiHome, HiUserAdd } from "react-icons/hi";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -19,11 +20,15 @@ function NavBar() {
 
       {isCadastro.cadastro ? (
         <Link href={"/"}>
-          <button onClick={() => dispatch(initiate())}>Home</button>
+          <button onClick={() => dispatch(initiate())}>
+            <HiHome size={27} />
+          </button>
         </Link>
       ) : (
         <Link href={"/register"}>
-          <button>Cadastrar</button>
+          <button onClick={() => dispatch(initiate())}>
+            <HiUserAdd size={27} />
+          </button>
         </Link>
       )}
       {isLoading.isLoading && <Loading />}

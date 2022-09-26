@@ -9,10 +9,10 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    load(state, action: PayloadAction<IUser[]>) {
+    update(state, action: PayloadAction<IUser[]>) {
       state.users = [...state.users, ...action.payload];
     },
-    update(state, action: PayloadAction<IUser[]>) {
+    load(state, action: PayloadAction<IUser[]>) {
       state.users = [...state.users, ...action.payload];
     },
   },

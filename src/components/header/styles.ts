@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  min-height: 10rem;
-  max-height: 10rem;
+  min-height: 5rem;
+  max-height: 5rem;
   width: 100%;
   background: rgb(var(--grey-5));
   transition: 1s;

@@ -33,7 +33,7 @@ body {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    background: rgb(var(--grey-0));
+    background: rgba(var(--grey-5), 0.9);
 }
 
 #__next {
@@ -43,6 +43,16 @@ body {
     
 
 }
+
+#app__home--wrapper {
+    width: 100%;
+    display: flex;
+    background: red;
+    height: 100;
+    justify-content: center;
+}
+
+
 
 button {
     background: rgb(var(--color-primary));

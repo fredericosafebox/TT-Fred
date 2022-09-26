@@ -71,7 +71,7 @@ export const StyledCard = styled.li`
 
   &:hover {
     width: 21rem;
-    box-shadow: 0 0 15px 0 rgb(var(--grey-4));
+    box-shadow: 0 0 15px 0 rgb(var(--color-prim-hover));
     .app__card--info {
       width: 6rem;
     }
@@ -79,5 +79,17 @@ export const StyledCard = styled.li`
 
   @media screen AND (min-width: 375px) {
     transform: scale(1);
+  }
+
+  @media screen AND (min-width: 768px) {
+    width: 21rem;
+
+    .app__card--info {
+      width: 6rem;
+    }
+  }
+
+  @media screen AND (min-width: 1024px) {
+    width: 21rem;
   }
 `;

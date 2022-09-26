@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AxiosResponse } from "axios";
 import { useEffect } from "react";
 import { finish } from "../store/loader/loaderSlice";
+import { v4 as uuidv4 } from "uuid";
 
 export async function getStaticProps() {
   const res: AxiosResponse = await api.get("users");
@@ -24,25 +25,29 @@ export async function getStaticProps() {
 const Home: NextPage = (props: any) => {
   useEffect(() => {
     dispatch(finish());
-  });
+    return () => {
+      dispatch(finish());
+    };
+  }, []);
   const dispatch = useDispatch();
   const validator = useSelector((state: RootState) => state.validator);
   const { data } = props;
-  if (!validator) {
+  if (validator.validate === false) {
     dispatch(load(data));
   }
   const users = useSelector((state: RootState) => state.users);
 
   return (
-    <>
+    <div id="app__home--wrapper">
       <Header />
+
       <UserList>
-        {!validator
+        {validator.validate
           ? users.users.map((obj: IUser) => {
               const { id, name, email, gender, status } = obj;
               return (
                 <UserCard
-                  key={id}
+                  key={uuidv4()}
                   id={id}
                   email={email}
                   name={name}
@@ -55,7 +60,7 @@ const Home: NextPage = (props: any) => {
               const { id, name, email, gender, status } = obj;
               return (
                 <UserCard
-                  key={id}
+                  key={uuidv4()}
                   id={id}
                   email={email}
                   name={name}
@@ -65,7 +70,7 @@ const Home: NextPage = (props: any) => {
               );
             })}
       </UserList>
-    </>
+    </div>
   );
 };
 
